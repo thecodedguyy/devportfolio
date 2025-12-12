@@ -71,7 +71,6 @@ export default function Hero() {
             }, 0);
 
         }, containerRef);
-
         return () => ctx.revert();
     }, []);
 

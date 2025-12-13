@@ -1,108 +1,115 @@
 "use client";
 
-import { useLayoutEffect, useRef } from "react";
+import { useLayoutEffect, useRef, useState, useEffect } from "react";
 import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-
-gsap.registerPlugin(ScrollTrigger);
-
-const images = [
-    "https://images.unsplash.com/photo-1765127586047-f158d5bd6a33?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1765127586047-f158d5bd6a33?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1765127586047-f158d5bd6a33?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1765127586047-f158d5bd6a33?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    "https://images.unsplash.com/photo-1765127586047-f158d5bd6a33?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-];
+import { MoveRight, FileText, User } from "lucide-react";
 
 export default function Hero() {
-    const containerRef = useRef<HTMLElement>(null);
-    const wrapperRef = useRef<HTMLDivElement>(null);
+    const containerRef = useRef(null);
+    const [greeting, setGreeting] = useState("Good evening");
+
+    useEffect(() => {
+        const hour = new Date().getHours();
+        if (hour < 12) setGreeting("Good morning");
+        else if (hour < 18) setGreeting("Good afternoon");
+        else setGreeting("Good evening");
+    }, []);
 
     useLayoutEffect(() => {
         const ctx = gsap.context(() => {
-            const imgs = gsap.utils.toArray<HTMLElement>(".hero-img");
-
-            // Initial scatter state
-            imgs.forEach((img, i) => {
-                gsap.set(img, {
-                    x: (Math.random() - 0.5) * 800, // Random X scatter
-                    y: (Math.random() - 0.5) * 400, // Random Y scatter
-                    rotation: (Math.random() - 0.5) * 30, // Random rotation
-                    scale: 0.8 + Math.random() * 0.4, // Random size
-                });
-            });
-
-            // Timeline: Scatter -> Organize
-            const tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: containerRef.current,
-                    start: "top top",
-                    end: "+=2000", // Scroll distance
-                    scrub: 1,
-                    pin: true,
-                    anticipatePin: 1,
-                }
-            });
-
-            // Animate images to a grid/line
-            // Here we organize them into a centered horizontal spread
-            imgs.forEach((img, i) => {
-                // Determine target position
-                // Let's make a nice overlapping horizontal row for "single" feel
-                const xOffset = (i - 2) * 220; // -440, -220, 0, 220, 440
-
-                tl.to(img, {
-                    x: xOffset,
-                    y: 0,
-                    rotation: 0, // Straighten up
-                    scale: 1, // Normalized size
-                    borderRadius: "8px",
-                    duration: 1,
-                    ease: "power2.inOut"
-                }, 0); // All happen at same time absolute time 0
-            });
-
-            // Text comes FORWARD (scale up) and fades out
-            tl.to(".hero-name", {
-                scale: 1.5,
+            gsap.from(".hero-content > *", {
+                y: 30,
                 opacity: 0,
-                ease: "power1.inOut"
-            }, 0);
+                duration: 1,
+                stagger: 0.2,
+                ease: "power3.out",
+                delay: 0.5
+            });
 
+            // Subtle rotation for planet
+            gsap.to(".planet-bg", {
+                rotation: 360,
+                duration: 200,
+                repeat: -1,
+                ease: "linear"
+            });
         }, containerRef);
+
         return () => ctx.revert();
     }, []);
 
     return (
-        <section ref={containerRef} className="hero-container h-[100vh]">
-            {/* Note: standard height, ScrollTrigger pin will handle the 'sticky' feel effectively if configured or we can make the parent standard and pin inner. 
-               However, user wants "sticky" feel with scroll. 
-               Let's usually make the container taller (spacer) OR let ScrollTrigger pin it. 
-               GSAP 'pin: true' fixes the element during the scroll.
-            */}
+        <section id="home" ref={containerRef} className="relative min-h-screen w-full overflow-hidden bg-[#030014] text-white flex items-center">
 
-            <div ref={wrapperRef} className="hero-sticky bg-black text-white relative flex flex-col items-center justify-center h-full w-full overflow-hidden">
-                {/* Background Name - Now in FRONT with blend mode */}
-                <h1 className="hero-name absolute text-[15vw] font-bold leading-[0.9] tracking-tighter uppercase text-white z-40 text-center mix-blend-difference pointer-events-none">
-                    PRATIK<br />PRAJAPATI
-                </h1>
+            {/* Background Assets */}
+            <div className="absolute inset-0 z-0">
+                {/* Stars/Space BG */}
+                <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1506318137071-a8bcbf6755dd?q=80&w=2940&auto=format&fit=crop')] bg-cover opacity-40"></div>
 
-                {/* Scattered Images */}
-                <div className="collage-wrapper relative w-full h-full flex items-center justify-center z-10">
-                    {images.map((src, i) => (
-                        <div key={i} className="hero-img w-[300px] h-[400px] bg-neutral-800 overflow-hidden relative border-4 border-white/5 rounded-sm shadow-2xl">
-                            <Image
-                                src={src}
-                                alt=""
-                                fill
-                                className="object-cover"
-                                sizes="(max-width: 768px) 100vw, 300px"
-                            />
-                        </div>
-                    ))}
+                {/* Planet Top Right */}
+                <div className="absolute -top-[30%] -right-[10%] w-[90vw] h-[90vw] md:w-[60vw] md:h-[60vw] opacity-90 planet-bg">
+                    <Image
+                        src="https://images.unsplash.com/photo-1614730341194-75c6074065db?q=80&w=1948&auto=format&fit=crop"
+                        alt="Planet"
+                        fill
+                        className="object-cover rounded-full mix-blend-screen"
+                    />
+                    <div className="absolute inset-0 bg-blue-500/20 rounded-full blur-3xl"></div>
+                </div>
+
+                {/* Satellite/Station Element */}
+                <div className="absolute top-[20%] right-[5%] w-[300px] h-[300px] hidden md:block animate-float-slow opacity-80">
+                    <Image
+                        src="https://images.unsplash.com/photo-1545153982-f04c632e85e1?q=80&w=3432&auto=format&fit=crop" // Abstract tech/space placeholder
+                        alt="Station"
+                        fill
+                        className="object-contain drop-shadow-[0_0_30px_rgba(59,130,246,0.5)]"
+                    />
                 </div>
             </div>
+
+            {/* Content Container with Left Margin for Sidebar */}
+            <div className="relative z-10 w-full pl-24 md:pl-32 pr-8 max-w-5xl">
+
+                {/* Resume Pill & Connector Line */}
+                <div className="relative mb-8 pl-8 hero-content">
+                    {/* Vertical Line */}
+                    <div className="absolute left-0 top-4 bottom-[-400px] w-[1px] bg-gradient-to-b from-blue-500/50 to-transparent"></div>
+                    {/* Curved Connector */}
+                    <div className="absolute left-0 top-1/2 w-8 h-[1px] bg-blue-500/50"></div>
+
+                    <a href="#resume" className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-blue-950/30 border border-blue-500/30 backdrop-blur-md hover:bg-blue-900/40 transition-colors group">
+                        <div className="p-1.5 rounded-full bg-blue-500/20 text-blue-400">
+                            <FileText size={14} />
+                        </div>
+                        <div className="flex flex-col">
+                            <span className="text-xs font-bold text-white tracking-wide">Access online resume</span>
+                            <span className="text-[10px] text-gray-400 group-hover:text-blue-300 transition-colors">Dynamic, interactive, and up-to-date</span>
+                        </div>
+                        <MoveRight size={14} className="text-blue-500 ml-2" />
+                    </a>
+                </div>
+
+                {/* Main Heading */}
+                <h1 className="hero-content text-5xl md:text-7xl font-mono font-bold mb-8 tracking-tight">
+                    {greeting}, <br className="md:hidden" />
+                    <span className="typing-cursor">human</span>
+                </h1>
+
+                {/* Introduction Text */}
+                <div className="hero-content max-w-2xl text-lg md:text-xl text-gray-300 leading-relaxed font-light pl-8 border-l border-white/10 ml-[1px]">
+                    <p className="mb-6">
+                        My name&apos;s <span className="text-white font-semibold underline decoration-blue-500 underline-offset-4 decoration-2">Pratik Prajapati</span>,
+                        but you can call me <span className="text-blue-400">Pratik</span>.
+                        I&apos;m a <span className="font-bold text-white">Full Stack Engineer</span> and an <span className="font-bold text-white">Open-source</span> enthusiast.
+                    </p>
+                </div>
+
+            </div>
+
+            {/* Soft Gradient Overlay at bottom */}
+            <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#020617] to-transparent pointer-events-none"></div>
         </section>
     );
 }

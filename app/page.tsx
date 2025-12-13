@@ -7,12 +7,14 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div className="relative">
+    <div className="relative bg-[#020617] min-h-screen text-white">
       <Navbar />
-      <Hero />
-      <AboutSection />
-      <ProjectsSection />
-      <ContactSection />
+      <main className="pl-20">
+        <Hero />
+        <AboutSection />
+        <ProjectsSection />
+        <ContactSection />
+      </main>
     </div>
   );
 }

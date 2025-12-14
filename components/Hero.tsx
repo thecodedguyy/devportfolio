@@ -40,7 +40,7 @@ export default function Hero() {
     }, []);
 
     return (
-        <section id="home" ref={containerRef} className="relative min-h-screen w-full overflow-hidden bg-[#030014] text-white flex items-center">
+        <section ref={containerRef} className="relative w-full overflow-hidden bg-[#030014] text-white pt-32 md:pt-48 pb-10">
 
             {/* Background Assets */}
             <div className="absolute inset-0 z-0">
@@ -64,7 +64,7 @@ export default function Hero() {
                         src="https://images.unsplash.com/photo-1545153982-f04c632e85e1?q=80&w=3432&auto=format&fit=crop" // Abstract tech/space placeholder
                         alt="Station"
                         fill
-                        className="object-contain drop-shadow-[0_0_30px_rgba(59,130,246,0.5)]"
+                        className="object-contain drop-shadow-[0_0_50px_rgba(59,130,246,0.3)]"
                     />
                 </div>
             </div>
@@ -75,7 +75,7 @@ export default function Hero() {
                 {/* Resume Pill & Connector Line */}
                 <div className="relative mb-8 pl-8 hero-content">
                     {/* Vertical Line */}
-                    <div className="absolute left-0 top-4 bottom-[-400px] w-[1px] bg-gradient-to-b from-blue-500/50 to-transparent"></div>
+                    <div className="absolute left-0 top-4 h-[150%] w-[1px] bg-gradient-to-b from-blue-500/50 to-transparent"></div>
                     {/* Curved Connector */}
                     <div className="absolute left-0 top-1/2 w-8 h-[1px] bg-blue-500/50"></div>
 
@@ -85,21 +85,21 @@ export default function Hero() {
                         </div>
                         <div className="flex flex-col">
                             <span className="text-xs font-bold text-white tracking-wide">Access online resume</span>
-                            <span className="text-[10px] text-gray-400 group-hover:text-blue-300 transition-colors">Dynamic, interactive, and up-to-date</span>
+                            <span className="text-xs text-gray-400 group-hover:text-blue-300 transition-colors">Dynamic, interactive, and up-to-date</span>
                         </div>
                         <MoveRight size={14} className="text-blue-500 ml-2" />
                     </a>
                 </div>
 
                 {/* Main Heading */}
-                <h1 className="hero-content text-5xl md:text-7xl font-mono font-bold mb-8 tracking-tight">
+                <h1 className="hero-content text-5xl md:text-7xl font-mono font-bold mb-8 tracking-tight pl-8">
                     {greeting}, <br className="md:hidden" />
                     <span className="typing-cursor">human</span>
                 </h1>
 
                 {/* Introduction Text */}
-                <div className="hero-content max-w-2xl text-lg md:text-xl text-gray-300 leading-relaxed font-light pl-8 border-l border-white/10 ml-[1px]">
-                    <p className="mb-6">
+                <div className="hero-content max-w-2xl text-lg md:text-xl text-gray-300 leading-relaxed font-light pl-8 ml-[1px]">
+                    <p className="mb-6 pl-8 border-l border-white/10">
                         My name&apos;s <span className="text-white font-semibold underline decoration-blue-500 underline-offset-4 decoration-2">Pratik Prajapati</span>,
                         but you can call me <span className="text-blue-400">Pratik</span>.
                         I&apos;m a <span className="font-bold text-white">Full Stack Engineer</span> and an <span className="font-bold text-white">Open-source</span> enthusiast.

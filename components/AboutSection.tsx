@@ -58,7 +58,7 @@ export default function AboutSection() {
     const [activeTab, setActiveTab] = useState<"experience" | "education">("experience");
 
     return (
-        <section id="about" className="relative min-h-screen bg-[#030014] text-white py-20">
+        <section id="about" className="relative min-h-screen bg-[#030014] text-white pt-0 pb-20">
             {/* Sidebar Guide Line - Matches Hero's line position */}
             {/* Hero container is pl-32. Inner content is pl-8. The line is at left-0 of that inner content. 
                 So effectively line is at 32 + 0 padding relative to screen? No.

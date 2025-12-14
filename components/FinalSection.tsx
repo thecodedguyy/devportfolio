@@ -1,7 +1,7 @@
 "use client";
 
 import { useGsapFadeIn } from "@/hooks/useGsapFadeIn";
-import { Send, Terminal, Cpu, Shield, Globe } from "lucide-react";
+import { Send, Terminal, Cpu, Shield, Globe, AtSign, User, Flame } from "lucide-react";
 import Image from "next/image";
 
 export default function FinalSection() {
@@ -117,32 +117,62 @@ export default function FinalSection() {
 
                 {/* === CONTACT FORM SECTION === */}
                 <div className="relative pb-40">
-                    <div className="flex flex-col md:flex-row gap-12 px-4 md:px-20 max-w-6xl mx-auto items-center">
+                    <div className="flex flex-col md:flex-row gap-20 px-4 md:px-20 max-w-6xl mx-auto items-start">
 
                         {/* Form */}
                         <div className="w-full md:w-1/2 z-10">
-                            <h2 className="text-4xl font-bold mb-8">
+                            <h2 className="text-5xl font-bold mb-8 tracking-tight">
                                 Let&apos;s <span className="text-red-500">connect.</span>
                             </h2>
-                            <form className="space-y-4">
-                                <div className="grid grid-cols-2 gap-4">
-                                    <input type="text" placeholder="Name" className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:border-red-500/50 focus:outline-none transition-colors" />
-                                    <input type="email" placeholder="Email" className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:border-red-500/50 focus:outline-none transition-colors" />
+                            <form className="space-y-6">
+                                <div className="space-y-4">
+                                    <div className="relative group">
+                                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-white transition-colors">
+                                            <AtSign size={18} />
+                                        </div>
+                                        <input
+                                            type="email"
+                                            placeholder="Your email address"
+                                            className="w-full bg-[#0a0a0a] border border-white/10 rounded-xl pl-12 pr-4 py-4 text-sm focus:border-white/20 focus:outline-none focus:bg-white/5 transition-all placeholder:text-gray-600 text-gray-300"
+                                        />
+                                    </div>
+                                    <div className="relative group">
+                                        <div className="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-white transition-colors">
+                                            <User size={18} />
+                                        </div>
+                                        <input
+                                            type="text"
+                                            placeholder="Your name"
+                                            className="w-full bg-[#0a0a0a] border border-white/10 rounded-xl pl-12 pr-4 py-4 text-sm focus:border-white/20 focus:outline-none focus:bg-white/5 transition-all placeholder:text-gray-600 text-gray-300"
+                                        />
+                                    </div>
+                                    <div className="relative group">
+                                        <textarea
+                                            placeholder="What's on your mind?"
+                                            rows={5}
+                                            className="w-full bg-[#0a0a0a] border border-white/10 rounded-xl px-4 py-4 text-sm focus:border-white/20 focus:outline-none focus:bg-white/5 transition-all placeholder:text-gray-600 text-gray-300 resize-none"
+                                        ></textarea>
+                                    </div>
                                 </div>
-                                <textarea placeholder="Message" rows={4} className="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 focus:border-red-500/50 focus:outline-none transition-colors"></textarea>
-                                <button className="flex items-center gap-2 px-6 py-3 bg-red-600 hover:bg-red-500 text-white rounded-lg font-bold transition-colors">
-                                    Send Message <Send size={16} />
-                                </button>
+
+                                <div className="flex items-center justify-end gap-3 pt-2">
+                                    <button type="button" className="flex items-center gap-2 px-6 py-2.5 bg-red-900/20 hover:bg-red-900/30 text-red-500 rounded-lg text-sm font-medium transition-colors border border-red-900/30">
+                                        <Flame size={16} /> Call me
+                                    </button>
+                                    <button type="submit" className="flex items-center gap-2 px-6 py-2.5 bg-blue-950/30 hover:bg-blue-900/40 text-blue-400 rounded-lg text-sm font-medium transition-colors border border-blue-900/30">
+                                        <Send size={16} /> Submit
+                                    </button>
+                                </div>
                             </form>
                         </div>
 
                         {/* Satellite Image */}
-                        <div className="w-full md:w-1/2 relative h-[300px]">
+                        <div className="w-full md:w-1/2 relative h-[400px]">
                             <Image
-                                src="https://images.unsplash.com/photo-1516849841032-87cbac4d88f7?q=80&w=2574&auto=format&fit=crop"
+                                src="/space-station.webp"
                                 alt="Satellite"
                                 fill
-                                className="object-contain drop-shadow-[0_0_50px_rgba(255,255,255,0.1)]"
+                                className="object-contain drop-shadow-[0_0_50px_rgba(255,255,255,0.1)] -rotate-12 translate-x-10"
                             />
                         </div>
 

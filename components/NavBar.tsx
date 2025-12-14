@@ -9,7 +9,7 @@ export default function Navbar() {
             {/* Logo / Home Icon */}
             <div className="mb-12">
                 <div className="w-10 h-10 bg-white text-black rounded-full flex items-center justify-center font-bold text-xl">
-                    <Home size={20} />
+                    P
                 </div>
             </div>
 

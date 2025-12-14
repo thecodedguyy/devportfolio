@@ -59,9 +59,9 @@ export default function Hero() {
                 </div>
 
                 {/* Satellite/Station Element */}
-                <div className="absolute top-[20%] right-[5%] w-[300px] h-[300px] hidden md:block animate-float-slow opacity-80">
+                <div className="absolute top-[20%] right-[5%] w-[500px] h-[300px] hidden md:block animate-float-slow opacity-80">
                     <Image
-                        src="https://images.unsplash.com/photo-1545153982-f04c632e85e1?q=80&w=3432&auto=format&fit=crop" // Abstract tech/space placeholder
+                        src="/space-station.webp"
                         alt="Station"
                         fill
                         className="object-contain drop-shadow-[0_0_50px_rgba(59,130,246,0.3)]"

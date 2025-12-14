@@ -10,18 +10,13 @@ export default function FinalSection() {
     return (
         <section className="relative w-full bg-[#030014] text-white overflow-hidden pb-0">
 
-            {/* --- LINE CONNECTORS --- */}
-            {/* 1. Receive line from ContactSection (Yellow horizontal -> Green vertical) */}
-            {/* Contact ended with a line going Right. We need to catch it and bring it Down on the Right side. */}
-            <div className="absolute top-0 right-[3rem] md:right-[9rem] w-[1px] h-[500px] bg-gradient-to-b from-green-500/50 to-green-500/30 hidden md:block"></div>
-
-            {/* Connection curve top-right */}
-            {/* This connects the horizontal line from Contact (which ended in middle) to the right vertical line */}
-            <div className="absolute top-[-1px] left-[3rem] md:left-[9rem] right-[3rem] md:right-[9rem] h-[100px] border-t border-r border-green-500/50 rounded-tr-[50px] hidden md:block"></div>
-
-
-            {/* 2. Vertical Line for Open Source Section (Green) */}
-            <div className="absolute top-[100px] right-[3rem] md:right-[9rem] bottom-[50%] w-[1px] bg-green-500/30 hidden md:block"></div>
+            {/* --- LINE CONNECTORS (The Snake) --- */}
+            <div className="absolute top-[-50px] left-0 right-0 h-[100px] pointer-events-none hidden md:block">
+                <div className="absolute left-[3rem] md:left-[9rem] top-0 w-[50px] h-[50px] border-l border-b rounded-bl-[50px] border-yellow-500/50"></div>
+                <div className="absolute left-[calc(3rem+50px)] md:left-[calc(9rem+50px)] right-[calc(3rem+50px)] md:right-[calc(9rem+50px)] top-[49px] h-[1px] bg-gradient-to-r from-yellow-500/50 to-green-500/50"></div>
+                <div className="absolute right-[3rem] md:right-[9rem] top-[49px] w-[50px] h-[50px] border-t border-r rounded-tr-[50px] border-green-500/50"></div>
+                <div className="absolute right-[3rem] md:right-[9rem] top-[99px] bottom-[-500px] w-[1px] bg-green-500/30"></div>
+            </div>
 
             <div ref={ref} className="relative z-10 w-full px-4 md:px-0 max-w-7xl mx-auto pt-0">
 
@@ -31,7 +26,7 @@ export default function FinalSection() {
                     {/* Header (Right aligned relative to content) */}
                     <div className="md:absolute md:right-[9rem] md:top-0 md:text-right pr-8 md:pr-12">
                         <div className="absolute right-[-5px] top-1/2 -translate-y-1/2 w-3 h-3 bg-green-500 rounded-full shadow-[0_0_10px_rgba(34,197,94,0.8)] hidden md:block"></div>
-                        <h2 className="text-3xl md:text-4xl font-bold">
+                        <h2 className="text-3xl md:text-4xl font-bold pt-10">
                             <span className="text-green-500">Open-source.</span> Join the dark side of the force.
                         </h2>
                         <p className="text-gray-400 mt-2 text-sm max-w-md ml-auto">

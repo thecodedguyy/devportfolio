@@ -59,12 +59,6 @@ export default function AboutSection() {
 
     return (
         <section id="about" className="relative min-h-screen bg-[#030014] text-white pt-0 pb-20">
-            {/* Sidebar Guide Line - Matches Hero's line position */}
-            {/* Hero container is pl-32. Inner content is pl-8. The line is at left-0 of that inner content. 
-                So effectively line is at 32 + 0 padding relative to screen? No.
-                Let's match visual alignment manually or logically. 
-                The Hero line is inside the content flow. Here we want a continuous absolute line.
-            */}
             <div className="absolute left-[3rem] md:left-[9rem] top-0 bottom-0 w-[1px] bg-blue-500/30 hidden md:block"></div>
 
             <div ref={ref} className="relative z-10 w-full pl-24 md:pl-44 pr-8 max-w-7xl">

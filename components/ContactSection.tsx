@@ -18,13 +18,10 @@ export default function ContactSection() {
     const ref = useGsapFadeIn();
 
     return (
-        <section id="contact" className="relative w-full py-20 bg-[#030014] text-white overflow-hidden">
+        <section id="contact" className="relative w-full pt-10 bg-[#030014] text-white overflow-hidden">
 
-            {/* Guide Line with curved ending */}
-            <div className="absolute left-[3rem] md:left-[9rem] top-0 bottom-[100px] w-[1px] bg-gradient-to-b from-purple-500/30 to-yellow-500/50 hidden md:block"></div>
-
-            {/* Curved bottom part of the line */}
-            <div className="absolute left-[3rem] md:left-[9rem] bottom-0 h-[100px] w-[50vw] border-l border-b border-yellow-500/50 rounded-bl-[50px] hidden md:block"></div>
+            {/* Guide Line (Vertical only, stops before curve) */}
+            <div className="absolute left-[3rem] md:left-[9rem] top-0 bottom-[50px] w-[1px] bg-gradient-to-b from-purple-500/30 to-yellow-500/50 hidden md:block"></div>
 
             <div ref={ref} className="relative z-10 w-full pl-8 md:pl-44 pr-8 max-w-7xl">
 
@@ -43,7 +40,7 @@ export default function ContactSection() {
                 </div>
 
                 <div className="max-w-2xl">
-                    <p className="text-gray-400 text-lg leading-relaxed mb-12">
+                    <p className="text-gray-400 text-lg leading-relaxed mb-4">
                         Feel free to <span className="text-white font-semibold">contact me</span> if you have any questions or suggestions.
                         I am always open to new <span className="text-white font-semibold">ideas and opportunities</span>.
                     </p>
@@ -65,16 +62,7 @@ export default function ContactSection() {
 
             </div>
 
-            {/* Decorative Background Marquee (Simulated) */}
-            <div className="absolute bottom-10 left-0 right-0 opacity-10 pointer-events-none overflow-hidden whitespace-nowrap">
-                <div className="inline-block animate-marquee">
-                    {[...SOCIALS, ...SOCIALS, ...SOCIALS].map((s, i) => (
-                        <span key={i} className="mx-8 text-4xl font-bold text-white/20 uppercase tracking-widest">
-                            {s.name}
-                        </span>
-                    ))}
-                </div>
-            </div>
+
         </section>
     );
 }

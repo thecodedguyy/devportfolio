@@ -17,50 +17,42 @@ const EDUCATION = [
 
 const EXPERIENCES = [
     {
-        company: "Accenture",
-        date: "Feb 2024 - Present",
-        duration: "1 year 11 months",
-        role: "Lead Full Stack Engineer",
-        location: "Victoria, Australia",
+        company: "X-Rite - Pantone Pvt. Ltd.",
+        date: "2023 - Present",
+        duration: "Present",
+        role: "Sitecore Developer",
+        location: "Remote",
         type: "Full-time",
-        tags: ["Next", "React", "REST", "FastAPI", "AWS", "Docker", "Redux", "i18n", "Tailwind"],
+        tags: ["Sitecore 10.4", "AWS", "C#", "Node.js", "Azure AI", ".NET Core", "Solr", "Glass.Mapper"],
         bullets: [
-            "Develop various kinds of dashboard including CRM, Influencer Marketplace, Ad Campaign, AI Tools and Kanban using Next.js, MUI.",
-            "Develop backend engines using FastAPI."
-        ],
-        icon: Layout,
-        color: "bg-orange-500"
-    },
-    {
-        company: "Esko",
-        date: "Nov 2021 - Dec 2023",
-        duration: "2 years 1 month",
-        role: "Lead Full Stack engineer",
-        location: "Paris, France",
-        type: "Full-time",
-        tags: ["React", "Next", "NodeJS", "Nest", "Supabase", "UI/UX", "Figma"],
-        bullets: [
-            "Planned, implemented, and maintained high-quality software using Javascript, Typescript, React, Next, Express, and Supabase.",
-            "Tracked and fixed bugs using Jira as a reporting tool.",
-            "Contributed to the integration with different APIs using REST and GraphQL."
+            "Upgraded xrite.com public website from Sitecore 8.2 to 10.4, resolving configuration and fallback rendering issues, resulting in a 40% boost in page load speed.",
+            "Worked with DevOps in implementing CI/CD pipelines using AWS CodeBuild, reducing deployment errors by 30% and enabling faster release cycles.",
+            "Developed custom Sitecore components using Sitecore Renderings and Glass.Mapper 5 to support dynamic marketing content, and automated tasks with PowerShell scripts.",
+            "Developed a custom AI-powered translation system using C# and Node.js, integrating AIaaS for dynamic multilingual support.",
+            "Developed a RAG chatbot and AI agents for internal audit documentation using Node.js, TypeScript, and Azure AI.",
+            "Implemented an image validation pipeline in Sitecore to restrict uploads >500KB, optimizing storage and performance."
         ],
         icon: Globe,
         color: "bg-blue-500"
     },
     {
-        company: "X-Rite",
-        date: "Jun 2019 - Sep 2021",
-        duration: "2 years 4 months",
-        role: "Full Stack Developer",
-        location: "Vancouver, Canada",
+        company: "Accenture",
+        date: "2020 - 2023",
+        duration: "3 years",
+        role: "Application Development Analyst",
+        location: "Bengaluru, Karnataka",
         type: "Full-time",
-        tags: ["Vue", "Firebase", "Google Maps API", "SASS"],
+        tags: ["Sitecore MVC", "Helix", "Personalization", "GTM", "Onetrust", "SEO"],
         bullets: [
-            "Built and optimized demand-responsive transport solutions.",
-            "Collaborated on shared mobility platforms for corporate and community transport."
+            "Designed and developed scalable MVC renderings and custom pipelines using Sitecore APIs and Dependency Injection, aligned with Helix architecture.",
+            "Collaborated with marketing teams to implement Sitecore personalization, A/B testing, and preview features, improving content engagement by 15%.",
+            "Developed dynamic footers with GTM integration, enabling better clickstream analytics and enhancing user journey insights.",
+            "Created custom Sitecore rules and admin pages to streamline content management workflows and enforce governance.",
+            "Developed dynamic schema generation for web pages (JSON-LD), resulting in improved SEO ranking and richer search result indexing.",
+            "Acted as POC for Cookie Management in Onetrust, ensuring GDPR/CCPA compliance, reducing manual compliance overhead by 25%."
         ],
         icon: Code2,
-        color: "bg-emerald-500"
+        color: "bg-purple-500"
     }
 ];
 

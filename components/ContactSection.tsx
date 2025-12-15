@@ -1,17 +1,14 @@
 "use client";
 
 import { useGsapFadeIn } from "@/hooks/useGsapFadeIn";
-import { Github, Gitlab, Mail, Phone, Linkedin, Palette, BookOpen, Twitter } from "lucide-react";
+import { Github, Gitlab, Mail, Phone, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
 
 const SOCIALS = [
-    { name: "GitHub", icon: Github, href: "#" },
-    { name: "GitLab", icon: Gitlab, href: "#" },
-    { name: "DeviantArt", icon: Palette, href: "#" }, // Placeholder icon
-    { name: "ResearchGate", icon: BookOpen, href: "#" }, // Placeholder icon
-    { name: "Email", icon: Mail, href: "mailto:pratik@example.com" },
-    { name: "Phone", icon: Phone, href: "tel:+1234567890" },
-    { name: "LinkedIn", icon: Linkedin, href: "#" },
+    { name: "GitHub", icon: Github, href: "github.com/ppratik07" },
+    { name: "GitLab", icon: Gitlab, href: "https://gitlab.com/ppratikcodes" },
+    { name: "Email", icon: Mail, href: "mailto:ppratikcodes@gmail.com" },
+    { name: "LinkedIn", icon: Linkedin, href: "https://www.linkedin.com/in/pratik-prajapati79/" },
 ];
 
 export default function ContactSection() {

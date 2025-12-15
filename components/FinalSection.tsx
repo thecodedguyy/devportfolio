@@ -181,16 +181,23 @@ export default function FinalSection() {
 
             </div>
 
-            {/* === FOOTER LANDSCAPE === */}
-            <div className="relative w-full h-[300px] mt-[-100px] z-0">
-                <div className="absolute inset-0 bg-gradient-to-t from-[#020617] to-transparent z-10"></div>
+            {/* === FOOTER LANDSCAPE & SKY BACKGROUND === */}
+            <div className="absolute bottom-0 left-0 right-0 h-[800px] z-0">
+                {/* Gradient Fade from Top (Black to Transparent) to reveal stars */}
+                <div className="absolute top-0 left-0 right-0 h-[200px] bg-gradient-to-b from-[#030014] to-transparent z-10"></div>
+
+                {/* Stars Background Image */}
                 <Image
-                    src="https://images.unsplash.com/photo-1478760329108-5c3ed9d495a0?q=80&w=2674&auto=format&fit=crop"
-                    alt="Landscape"
+                    src="https://images.unsplash.com/photo-1506318137071-a8bcbf6755dd?q=80&w=2940&auto=format&fit=crop"
+                    alt="Stars background"
                     fill
-                    className="object-cover opacity-50 overflow-visible"
+                    className="object-cover opacity-80"
                 />
-                <div className="absolute bottom-4 w-full text-center z-20 text-xs text-gray-600">
+
+                {/* Darken bottom significantly to match reference which fades to black */}
+                <div className="absolute bottom-0 left-0 right-0 h-[500px] bg-gradient-to-t from-[#020617] via-[#020617] to-transparent z-10"></div>
+
+                <div className="absolute bottom-4 w-full text-center z-50 text-xs text-gray-500">
                     © 2024 Pratik Prajapati. All rights reserved.
                 </div>
             </div>

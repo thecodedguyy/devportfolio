@@ -102,7 +102,7 @@ export default function Hero() {
                     <p className="mb-6 pl-8 border-l border-white/10">
                         My name&apos;s <span className="text-white font-semibold underline decoration-blue-500 underline-offset-4 decoration-2">Pratik Prajapati</span>,
                         but you can call me <span className="text-blue-400">Pratik</span>.
-                        I&apos;m a <span className="font-bold text-white">Full Stack Engineer</span> and an <span className="font-bold text-white">Open-source</span> enthusiast.
+                        I&apos;m a <span className="font-bold text-white">Full Stack Engineer</span>, <span className="font-bold text-white">Sitecore Developer</span> and an <span className="font-bold text-white">AI</span> enthusiast.
                     </p>
                 </div>
 

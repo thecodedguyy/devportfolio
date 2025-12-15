@@ -6,52 +6,43 @@ import Link from "next/link";
 
 const PROJECTS = [
     {
-        title: "Prosp.ai",
-        stack: "TypeScript, Next, Supabase, OpenAI, Stripe",
-        desc: "Connect unlimited accounts and leverage AI to get 10x more replies to your LinkedIn messages and e-mails with multi-channel sequences",
-        stars: 473,
-        forks: 137,
+        title: "MemoryLane",
+        stack: "TypeScript, Next.js, Prisma, Postgres, NodeJs, Express, Razorpay",
+        desc: "Collect memories, photos, and messages from friends and family to create a meaningful keepsake for life's special moments.",
         highlight: false,
+        link: "https://memorylane.appx.live",
+        github: "https://github.com/ppratik07/moments",
     },
     {
-        title: "Csgo Trade",
-        stack: "TypeScript, Vue, Nest",
-        desc: "Trade CSGO Skins, Rust Skins, and TF2 Skins. Bonuses on CSGO trade + TF2 trade and other items. Buy, Sell & trade skins securely and instantly. Try now.",
-        stars: 327,
-        forks: 254,
-        highlight: false,
+        title: "NexusAI",
+        stack: "TypeScript, Next.js, Gemini API, OpenAI API, Tailwind,AWS Lambda",
+        desc: "Experience the future of AI interaction. Seamlessly chat with Gemini (free) or unlock OpenAI with login. Create, innovate, and explore with cutting-edge AI.",
+        highlight: true,
+        link: "https://nexusai.appx.live",
     },
     {
-        title: "Fastfin",
-        stack: "TypeScript, Next, Supabase, FFmpeg, OpenAI, Stripe",
-        desc: "FastFin combines AI-driven translation with quality metrics and human-level review for better, faster, and more accurate translations.",
-        stars: 355,
-        forks: 107,
+        title: "ColorValidator",
+        stack: "TypeScript, React, Node.js, Express, Prisma, PostgreSQL",
+        desc: "Create and manage brand color profiles, define tolerance levels, and validate colors against predefined profiles for design consistency.",
         highlight: false,
+        link: "#",
+        github: "https://github.com/ppratik07/color-validator",
     },
     {
-        title: "Incode Agency",
-        stack: "TypeScript, Next, Framer Motion",
-        desc: "Next-gen digital product development agency",
-        stars: 273,
-        forks: 37,
+        title: "Shutter Clicks",
+        stack: "Next.js, React, Tailwind, Framer Motion",
+        desc: "A professional photography portfolio and booking platform featuring gallery showcases, session management, and seamless booking integration.",
         highlight: false,
+        link: "https://shutter-click-xi.vercel.app",
+        github: "https://github.com/ppratik07/shutter-click",
     },
     {
-        title: "Micro1",
-        stack: "JavaScript, Nuxt, Express",
-        desc: "AI recruitment engine to hire deeply vetted engineers fast",
-        stars: 127,
-        forks: 54,
-        highlight: true, // This one is purple
-    },
-    {
-        title: "Shoe Surgeon Sneaker Collab & Studio",
-        stack: "JavaScript, Three.js",
-        desc: "Explore Jack Daniel Shoe Surgeon Sneaker Collab & Studio",
-        stars: 105,
-        forks: 48,
+        title: "Crypblock",
+        stack: "React, Vite, Solidity, Ethers.js, Tailwind",
+        desc: "A comprehensive crypto wallet application for storing and managing blockchain assets with secure transaction capabilities.",
         highlight: false,
+        link: "https://crypblock.vercel.app",
+        github: "https://github.com/ppratik07/crypblock",
     },
 ];
 
@@ -81,7 +72,7 @@ export default function ProjectsSection() {
                         </h2>
                         <span className="hidden sm:inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-purple-300">
                             <Github size={14} />
-                            7 repositories
+                            6 repositories
                         </span>
                     </div>
                 </div>
@@ -91,14 +82,11 @@ export default function ProjectsSection() {
                     {PROJECTS.map((p, i) => (
                         <div
                             key={i}
-                            className={`group relative rounded-xl border p-6 flex flex-col h-full transition-all duration-300 hover:-translate-y-1 ${p.highlight
-                                    ? "bg-[#1a103c] border-purple-500/50 hover:shadow-[0_0_30px_rgba(168,85,247,0.2)]"
-                                    : "bg-[#0f111a] border-white/10 hover:border-purple-500/30 hover:shadow-xl"
-                                }`}
+                            className="group relative rounded-xl border p-6 flex flex-col h-full transition-all duration-300 hover:-translate-y-1 bg-[#0f111a] border-white/10 hover:border-purple-500/30 hover:shadow-xl"
                         >
                             {/* Icon Code */}
                             <div className="mb-6 flex items-start justify-between">
-                                <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${p.highlight ? "bg-purple-500 text-white" : "bg-white/5 text-gray-400"}`}>
+                                <div className="w-10 h-10 rounded-lg flex items-center justify-center bg-white/5 text-gray-400">
                                     <Code size={20} />
                                 </div>
                             </div>
@@ -109,37 +97,27 @@ export default function ProjectsSection() {
                                 {p.stack}
                             </div>
 
-                            <p className={`text-sm mb-8 flex-1 leading-relaxed ${p.highlight ? "text-gray-300" : "text-gray-400"}`}>
+                            <p className="text-sm mb-8 flex-1 leading-relaxed text-gray-400">
                                 {p.desc}
                             </p>
 
-                            <div className="flex items-center justify-between pt-4 border-t border-white/5">
-                                <div className="flex items-center gap-4 text-xs text-gray-500 font-mono">
-                                    <div className="flex items-center gap-1 group-hover:text-yellow-500 transition-colors">
-                                        <Star size={14} />
-                                        {p.stars}
-                                    </div>
-                                    <div className="flex items-center gap-1 group-hover:text-blue-400 transition-colors">
-                                        <GitFork size={14} />
-                                        {p.forks}
-                                    </div>
-                                </div>
-                                <div className="flex items-center gap-2">
-                                    <button className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors">
-                                        <Code size={14} />
-                                        Code
-                                    </button>
-                                    <Link
-                                        href="#"
-                                        className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors ${p.highlight
-                                                ? "bg-purple-600 text-white hover:bg-purple-500"
-                                                : "bg-[#7c3aed] text-white hover:bg-[#6d28d9]"
-                                            }`}
-                                    >
-                                        <ExternalLink size={14} />
-                                        Website
-                                    </Link>
-                                </div>
+                            <div className="flex items-center justify-end pt-4 border-t border-white/5 gap-2">
+                                <Link
+                                    href={p.github || "#"}
+                                    target="_blank"
+                                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium text-gray-400 hover:text-white hover:bg-white/5 transition-colors"
+                                >
+                                    <Code size={14} />
+                                    Code
+                                </Link>
+                                <Link
+                                    href={p.link}
+                                    target="_blank"
+                                    className="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-colors bg-[#7c3aed] text-white hover:bg-[#6d28d9]"
+                                >
+                                    <ExternalLink size={14} />
+                                    Website
+                                </Link>
                             </div>
                         </div>
                     ))}
@@ -151,10 +129,12 @@ export default function ProjectsSection() {
                         <h3 className="text-3xl font-bold mb-2">Projects & <span className="text-gray-500">Experiments</span></h3>
                         <p className="text-gray-400 text-sm max-w-md">Browse more projects in the dedicated explorer, a centralised hub for all my work and experiments.</p>
                     </div>
-                    <button className="flex items-center gap-2 px-6 py-3 rounded-lg bg-white text-black font-semibold hover:bg-gray-200 transition-colors self-start md:self-auto">
-                        Explore more projects
-                        <MoveRight size={18} />
-                    </button>
+                    <Link href="/projects">
+                        <button className="flex items-center gap-2 px-6 py-3 rounded-lg bg-white text-black font-semibold hover:bg-gray-200 transition-colors self-start md:self-auto">
+                            Explore more projects
+                            <MoveRight size={18} />
+                        </button>
+                    </Link>
                 </div>
 
             </div>

@@ -3,6 +3,17 @@
 import { useGsapFadeIn } from "@/hooks/useGsapFadeIn";
 import { Terminal, Cpu, Globe, Layout, Server, Database, Code2 } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
+
+const EDUCATION = [
+    {
+        school: "Siddaganga Institute of Technology",
+        location: "Tumkur, Karnataka",
+        degree: "Bachelor of Engineering in Computer Science",
+        date: "2016 - 2020",
+        logo: "https://upload.wikimedia.org/wikipedia/en/8/85/Siddaganga_Institute_of_Technology_logo.png"
+    }
+];
 
 const EXPERIENCES = [
     {
@@ -174,11 +185,44 @@ export default function AboutSection() {
                         )}
 
                         {activeTab === "education" && (
-                            <div className="min-h-[300px] flex items-center justify-center text-gray-500 italic">
-                                Scanning for academic records... [No data loaded yet]
+                            <div className="space-y-8 animate-in fade-in slide-in-from-bottom-4 duration-500 h-[500px] overflow-y-auto pr-4">
+                                {EDUCATION.map((edu, i) => (
+                                    <div key={i} className="relative pl-4 group">
+                                        {/* Left Border Accent */}
+                                        <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-white/10 group-hover:bg-blue-500/50 transition-colors"></div>
+
+                                        <div className="flex items-start gap-4">
+                                            {/* Logo Box */}
+                                            <div className="w-16 h-16 rounded-xl bg-white p-2 flex items-center justify-center shrink-0 overflow-hidden">
+                                                {/* Fallback to text/icon if image fails, but trying direct logo */}
+                                                <Image
+                                                    src={edu.logo}
+                                                    alt={edu.school}
+                                                    width={64}
+                                                    height={64}
+                                                    className="object-contain w-full h-full"
+                                                />
+                                            </div>
+
+                                            <div className="flex-1">
+                                                <div className="flex flex-wrap items-baseline justify-between gap-x-3 mb-1">
+                                                    <h3 className="text-xl font-bold text-white">{edu.school}</h3>
+                                                    <span className="text-gray-400 text-sm">{edu.date}</span>
+                                                </div>
+
+                                                <div className="text-blue-400 font-medium mb-2">
+                                                    {edu.degree}
+                                                </div>
+
+                                                <div className="text-gray-500 text-sm">
+                                                    {edu.location}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         )}
-
                     </div>
                 </div>
             </div>

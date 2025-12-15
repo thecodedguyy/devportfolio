@@ -238,7 +238,7 @@ export default function FinalSection() {
                     {/* SPACE IMAGE */}
                     <div className="relative h-[400px]">
                         <Image
-                            src="/space-station.webp"
+                            src="/satellite.webp"
                             alt="Space station"
                             fill
                             className="object-contain -rotate-12"

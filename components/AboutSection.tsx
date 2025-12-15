@@ -11,7 +11,7 @@ const EDUCATION = [
         location: "Tumkur, Karnataka",
         degree: "Bachelor of Engineering in Computer Science",
         date: "2016 - 2020",
-        logo: "https://upload.wikimedia.org/wikipedia/en/8/85/Siddaganga_Institute_of_Technology_logo.png"
+        logo: "/sses.png"
     }
 ];
 

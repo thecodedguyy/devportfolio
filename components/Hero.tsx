@@ -11,7 +11,8 @@ export default function Hero() {
 
     useEffect(() => {
         const hour = new Date().getHours();
-        if (hour < 12) setGreeting("Good morning");
+        if (hour >= 22) setGreeting("Good night, visitor");
+        else if (hour < 12) setGreeting("Good morning");
         else if (hour < 18) setGreeting("Good afternoon");
         else setGreeting("Good evening");
     }, []);
@@ -93,8 +94,8 @@ export default function Hero() {
 
                 {/* Main Heading */}
                 <h1 className="hero-content text-5xl md:text-7xl font-mono font-bold mb-8 tracking-tight pl-8">
-                    {greeting}, <br className="md:hidden" />
-                    <span className="typing-cursor">human</span>
+                    {greeting.replace(" visitor", "")}{!greeting.includes("visitor") && ","} <br className="md:hidden" />
+                    <span className="typing-cursor">{greeting.includes("visitor") ? "visitor" : "human"}</span>
                 </h1>
 
                 {/* Introduction Text */}

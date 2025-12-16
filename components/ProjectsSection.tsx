@@ -25,7 +25,7 @@ const PROJECTS = [
         stack: "TypeScript, React, Node.js, Express, Prisma, PostgreSQL",
         desc: "Create and manage brand color profiles, define tolerance levels, and validate colors against predefined profiles for design consistency.",
         highlight: false,
-        link: "#",
+        link: "https://color-validator.vercel.app",
         github: "https://github.com/ppratik07/color-validator",
     },
     {

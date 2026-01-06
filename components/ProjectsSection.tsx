@@ -21,6 +21,13 @@ const PROJECTS = [
         link: "https://nexusai.appx.live",
     },
     {
+        title: "Highway Bites",
+        stack: "TypeScript, Next.js,Node.js, Google MAPS API, AWS Lambda",
+        desc: "Find the Best Dhabas & Food Stops on Your Road Trips. Discover top-rated eateries along highways with user reviews, menus, and directions for a delicious journey.",
+        highlight: true,
+        link: "https://highwaybites.vercel.app/",
+    },
+    {
         title: "ColorValidator",
         stack: "TypeScript, React, Node.js, Express, Prisma, PostgreSQL",
         desc: "Create and manage brand color profiles, define tolerance levels, and validate colors against predefined profiles for design consistency.",
